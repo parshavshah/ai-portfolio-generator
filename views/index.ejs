@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Portfolio Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>AI Portfolio Generator</h1>
+      <p>Transform your resume into a stunning portfolio website in seconds</p>
+    </header>
+
+    <main class="main">
+      <div class="upload-section">
+        <div class="upload-card">
+          <div class="upload-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h2>Upload Your Resume</h2>
+          <p>Upload a PDF resume and let AI create your personalized portfolio website</p>
+
+          <form id="resumeForm" enctype="multipart/form-data">
+            <div class="file-input-wrapper">
+              <input type="file" id="resumeFile" name="resume" accept=".pdf" required>
+              <label for="resumeFile" class="file-input-label">
+                <span class="file-input-text">Choose PDF file</span>
+                <span class="file-input-button">Browse</span>
+              </label>
+            </div>
+            <button type="submit" class="generate-btn" disabled>
+              <span class="btn-text">Generate Portfolio</span>
+              <span class="btn-loading">Processing...</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="loadingModal" class="modal">
+    <div class="modal-content">
+      <div class="loading-spinner"></div>
+      <h3>Processing Your Resume</h3>
+      <p>Our AI is analyzing your resume and creating your portfolio...</p>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.name %> - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/portfolio.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand"><%= data.name %></div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-name"><%= data.name %></h1>
+            <p class="hero-title"><%= data.title %></p>
+            <p class="hero-location"><%= data.location %></p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <button onclick="downloadPortfolio()" class="btn btn-secondary">Download Portfolio</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p><%= data.summary %></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-grid">
+                <% data.experience.forEach(job => { %>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3><%= job.position %></h3>
+                        <span class="company"><%= job.company %></span>
+                        <span class="duration"><%= job.duration %></span>
+                    </div>
+                    <p class="experience-description"><%= job.description %></p>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <% data.skills.forEach(skill => { %>
+                <div class="skill-tag"><%= skill %></div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <% if (data.projects && data.projects.length > 0) { %>
+    <section id="projects" class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <% data.projects.forEach(project => { %>
+                <div class="project-card">
+                    <h3><%= project.name %></h3>
+                    <p><%= project.description %></p>
+                    <% if (project.technologies) { %>
+                    <div class="project-tech">
+                        <% project.technologies.forEach(tech => { %>
+                        <span class="tech-tag"><%= tech %></span>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+    <% } %>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <% data.education.forEach(edu => { %>
+                <div class="education-card">
+                    <h3><%= edu.degree %> in <%= edu.field %></h3>
+                    <p class="institution"><%= edu.institution %></p>
+                    <span class="year"><%= edu.year %></span>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong> <a href="mailto:<%= data.email %>"><%= data.email %></a>
+                </div>
+                <% if (data.phone) { %>
+                <div class="contact-item">
+                    <strong>Phone:</strong> <a href="tel:<%= data.phone %>"><%= data.phone %></a>
+                </div>
+                <% } %>
+                <div class="contact-item">
+                    <strong>Location:</strong> <%= data.location %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 <%= data.name %>. Portfolio generated with AI.</p>
+        </div>
+    </footer>
+
+    <script src="/portfolio.js"></script>
+</body>
+</html>
