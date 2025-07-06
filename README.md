@@ -10,6 +10,14 @@ AI Resume Builder is a modern web application that allows users to upload their 
 - **Secure & Private:** All processing is done securely; your data is not stored permanently.
 - **Modern UI:** Clean, responsive design with customizable sections.
 
+## 🖼️ Screenshots
+
+![Homepage Upload](screenshots/001.png)
+*Homepage: Upload your PDF resume*
+
+![Portfolio Preview](screenshots/002.png)
+*Portfolio: Instantly generated preview*
+
 ## 🛠️ Tech Stack
 - **Backend:** Node.js, Express.js, OpenAI API, pdf-parse
 - **Frontend:** EJS templates, HTML5, CSS3, JavaScript
@@ -34,7 +42,7 @@ AI Resume Builder is a modern web application that allows users to upload their 
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/ai-resume-builder.git
+git clone https://github.com/parshavshah/ai-portfolio-generator.git
 cd ai-resume-builder
 ```
 
